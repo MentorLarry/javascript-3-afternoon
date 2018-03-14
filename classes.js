@@ -101,6 +101,30 @@ class ProgressiveManager extends Manager {
     this.title = "Not a manager";
     this.bonus = 0;
   }
+  hire(employee) {
+    this.reports.push(employee);
+    this.updateTitle();
+  }
+  fire(index) {
+    this.reports.splice(index, 1);
+    this.bonus += 100;
+    this.updateTitle();
+  }
+  updateTitle() {
+    if (this.reports.length === 0) {
+      this.title = "Not a manager";
+    } else if (this.reports.length <= 3) {
+      this.title = "Barely Manager";
+    } else if (this.reports.length <= 10) {
+      this.title = "Mostly Manager";
+    } else if (this.reports.length <= 50) {
+      this.title = "Manager";
+    } else if (this.reports.length <= 100) {
+      this.title = "Manager Plus";
+    } else if (this.reports.length >= 101) {
+      this.title = "Bestest Manager";
+    }
+  }
 }
 
 ////////// PROBLEM 4 - Black Diamond //////////
@@ -127,3 +151,23 @@ class ProgressiveManager extends Manager {
 */
 
 //Code Here
+class Machine {
+  constructor() {
+    this.widgets_made_count = 0;
+    this.wear_and_tear_count = 0;
+    this.needs_reboot = false;
+  }
+  makeWidgets(num) {
+    this.widgets_made_count += num;
+    this.wear_and_tear_count = parseInt(this.widgets_made_count / 50);
+  }
+  fixMachine() {
+    this.needs_reboot = true;
+  }
+  reboot() {
+    return () => {
+      this.wear_and_tear_count -= 10;
+      this.needs_reboot = false;
+    };
+  }
+}
