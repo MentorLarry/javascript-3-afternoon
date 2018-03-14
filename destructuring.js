@@ -10,11 +10,11 @@
 
 // Do not edit the code below.
 var carDetails = {
-  color: 'red',
-  make: 'toyota',
-  model: 'tacoma',
+  color: "red",
+  make: "toyota",
+  model: "tacoma",
   year: 1994
-}
+};
 // Do not edit the code above.
 
 /*
@@ -22,8 +22,7 @@ var carDetails = {
 */
 
 //Code Here
-
-
+const { color, make, model, year } = carDetails;
 
 ////////// PROBLEM 2 //////////
 
@@ -33,15 +32,13 @@ var carDetails = {
   The property names are firstName, lastName, and title.
 */
 
-function greeting( obj ) {
+function greeting(obj) {
   //Code Here
-  
+  const { title, firstName, lastName } = obj;
   // Do not edit the code below.
-  return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
+  return "Hello, " + title + " " + firstName + " " + lastName + "!";
   // Do not edit the code above.
 }
-
-
 
 ////////// PROBLEM 3 //////////
 
@@ -54,8 +51,10 @@ function greeting( obj ) {
 */
 
 //Code Here
-
-
+function totalPopulation(obj) {
+  const { utah, california, texas, arizona } = obj;
+  return utah + california + texas + arizona;
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -68,8 +67,12 @@ function greeting( obj ) {
 */
 
 //Code Here
-
-
+function ingredients(obj) {
+  const { carb, fat, protein } = obj;
+  const arr = [];
+  arr.push(carb, fat, protein);
+  return arr;
+}
 
 ////////// PROBLEM 5 //////////
 
@@ -86,8 +89,9 @@ function greeting( obj ) {
 */
 
 //Code Here
-
-
+function largeNumbers({ first, second, third }) {
+  return Math.min(first, second, third);
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -98,5 +102,12 @@ function greeting( obj ) {
 */
 
 //Code Here
-
-
+function numberGroups({ a, b, c }) {
+  if (a.length > b.length && a.length > c.length) {
+    return a;
+  } else if (b.length > a.length && b.length > c.length) {
+    return b;
+  } else {
+    return c;
+  }
+}
